@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
 
     @GetMapping("/basic")
-    public String test(Model model) {
+    public String holle(Model model) {
 
 
         //1.纯文本形式的参数
