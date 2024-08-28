@@ -1,0 +1,6 @@
+minio:
+  accessKey: root
+  secretKey: cghmyr123
+  bucket: leadnews
+  endpoint: http://123.249.120.19:9000
+  readPath: http://123.249.120.19:9000
