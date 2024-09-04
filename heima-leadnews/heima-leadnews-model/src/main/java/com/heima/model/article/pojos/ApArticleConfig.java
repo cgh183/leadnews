@@ -60,4 +60,13 @@ public class ApArticleConfig implements Serializable {
      */
     @TableField("is_delete")
     private Boolean isDelete;
+
+
+    public ApArticleConfig(Long articleId){
+        this.articleId = articleId;
+        this.isComment = true;
+        this.isForward = true;
+        this.isDelete = false;
+        this.isDown = false;
+    }
 }

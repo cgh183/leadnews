@@ -1,0 +1,5 @@
+com\heima\wemedia\mapper\WmUserMapper.class
+com\heima\wemedia\service\WmUserService.class
+com\heima\wemedia\WemediaApplication.class
+com\heima\wemedia\service\impl\WmUserServiceImpl.class
+com\heima\wemedia\controller\v1\LoginController.class
