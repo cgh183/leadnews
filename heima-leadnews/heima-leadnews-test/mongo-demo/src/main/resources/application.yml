@@ -1,0 +1,11 @@
+server:
+  port: 9998
+spring:
+  data:
+    mongodb:
+      host: 123.249.120.19
+      port: 27017
+      database: leadnews-history
+      username: admin
+      password: cghmyr
+      authentication-database: admin
