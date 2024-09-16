@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = ScheduleApplication.class)
 @RunWith(SpringRunner.class)
@@ -22,13 +21,16 @@ public class TaskServiceImplTest {
 
     @Test
      void addTask() {
-        Task task = new Task();
-        task.setTaskType(100);
-        task.setPriority(50);
-        task.setParameters("task tesk".getBytes());
-        task.setExecuteTime(new Date().getTime());
-        long taskId = taskService.addTask(task);
-        System.out.println(taskId);
+
+        for(int i=0; i<5; i++){
+            Task task = new Task();
+            task.setTaskType(100);
+            task.setPriority(50);
+            task.setParameters("task tesk".getBytes());
+            task.setExecuteTime(new Date().getTime()+1000*i);
+            long taskId = taskService.addTask(task);
+            System.out.println(taskId);
+        }
     }
 
     @Test

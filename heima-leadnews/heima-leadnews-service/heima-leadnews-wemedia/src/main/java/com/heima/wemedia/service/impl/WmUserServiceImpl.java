@@ -49,4 +49,16 @@ public class WmUserServiceImpl extends ServiceImpl<WmUserMapper, WmUser> impleme
             return ResponseResult.errorResult(AppHttpCodeEnum.LOGIN_PASSWORD_ERROR);
         }
     }
+
+    @Override
+    public ResponseResult findWmUserByName(String name) {
+        WmUser wmUser =  getOne(Wrappers.<WmUser>lambdaQuery().eq(WmUser::getName, name));
+        return ResponseResult.okResult(wmUser);
+    }
+
+    @Override
+    public ResponseResult saveWmUser(WmUser wmUser) {
+        save(wmUser);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
 }

@@ -26,13 +26,13 @@ public class MinioTest {
     public void test(){
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream("C:/Users/18390/Desktop/ms/plugins/js/axios.min.js");
+            fileInputStream = new FileInputStream("C:/project/java/plugins/js/index.js");
 
             MinioClient minioClient = MinioClient.builder()
                     .credentials("root", "cghmyr123")
                     .endpoint("http://123.249.120.19:9000/").build();
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
-                    .object("/plugins/js/axios.min.js")
+                    .object("/plugins/js/index.js")
                     .contentType("text/js")
                     .bucket("leadnews")
                     .stream(fileInputStream, fileInputStream.available(), -1)

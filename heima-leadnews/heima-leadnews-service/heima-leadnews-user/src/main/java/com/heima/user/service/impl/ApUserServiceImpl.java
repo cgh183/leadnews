@@ -33,26 +33,26 @@ public class ApUserServiceImpl extends ServiceImpl<ApUserMapper, ApUser> impleme
         //1.正常登录 用户名和密码
         if(StringUtils.isNotBlank(dto.getPhone()) && StringUtils.isNotBlank(dto.getPassword())){
             //1.1 根据手机号查询用户信息
-            ApUser dbUser = getOne(Wrappers.<ApUser>lambdaQuery().eq(ApUser::getPhone, dto.getPhone()));
-            if(dbUser == null){
+            ApUser apUser = getOne(Wrappers.<ApUser>lambdaQuery().eq(ApUser::getPhone, dto.getPhone()));
+            if(apUser == null){
                 return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST,"用户信息不存在");
             }
 
             //1.2 比对密码
-            String salt = dbUser.getSalt();
+            String salt = apUser.getSalt();
             String password = dto.getPassword();
             String pswd = DigestUtils.md5DigestAsHex((password + salt).getBytes());
-            if(!pswd.equals(dbUser.getPassword())){
+            if(!pswd.equals(apUser.getPassword())){
                 return ResponseResult.errorResult(AppHttpCodeEnum.LOGIN_PASSWORD_ERROR);
             }
 
             //1.3 返回数据  jwt  user
-            String token = AppJwtUtil.getToken(dbUser.getId().longValue());
+            String token = AppJwtUtil.getToken(apUser.getId().longValue());
             Map<String,Object> map = new HashMap<>();
             map.put("token",token);
-            dbUser.setSalt("");
-            dbUser.setPassword("");
-            map.put("user",dbUser);
+            apUser.setSalt("");
+            apUser.setPassword("");
+            map.put("user",apUser);
 
             return ResponseResult.okResult(map);
         }else {

@@ -1,5 +1,6 @@
 package com.heima.utils.common;
 
+
 import io.jsonwebtoken.*;
 
 import javax.crypto.SecretKey;
@@ -110,7 +111,7 @@ public class AppJwtUtil {
        /* Map map = new HashMap();
         map.put("id","11");*/
         System.out.println(AppJwtUtil.getToken(1102L));
-        Jws<Claims> jws = AppJwtUtil.getJws("eyJhbGciOiJIUzUxMiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAADWLQQqEMAwA_5KzhURNt_qb1KZYQSi0wi6Lf9942NsMw3zh6AVW2DYmDGl2WabkZgreCaM6VXzhFBfJMcMARTqsxIG9Z888QLui3e3Tup5Pb81013KKmVzJTGo11nf9n8v4nMUaEY73DzTabjmDAAAA.4SuqQ42IGqCgBai6qd4RaVpVxTlZIWC826QA9kLvt9d-yVUw82gU47HDaSfOzgAcloZedYNNpUcd18Ne8vvjQA");
+        Jws<Claims> jws = AppJwtUtil.getJws("eyJhbGciOiJIUzUxMiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAADWLQQrDMAzA_uJzA7MTN2l_k3oey6AQcAobo3-fe9hNQugLr9FgBWXiZU4aoiwSkhCFEjEHLnEWku2Ro8AErQ5YMRPnkpjTBHZsftvHhu5XN3N9aturWz3ubrV3Z333_1nwOps3xBudP-J9M_6DAAAA.4LuCPNd9efo89J79DMQ1oU5XD8lAWBHNPCkHdOHRVusflZ4uPtwzHlcEfpdl-EBqOlOLc6PzahlG7y6L1xoWrw");
         Claims claims = jws.getBody();
         System.out.println(claims.get("id"));
 

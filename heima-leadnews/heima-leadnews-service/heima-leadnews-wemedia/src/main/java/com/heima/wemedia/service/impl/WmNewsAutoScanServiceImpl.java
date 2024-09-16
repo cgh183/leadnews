@@ -103,6 +103,7 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
 
 
             //4.审核成功，保存app端的相关的文章数据
+            log.info("WmNews:{}",wmNews);
             ResponseResult responseResult = saveAppArticle(wmNews);
             if(!responseResult.getCode().equals(200)){
                 throw new RuntimeException("WmNewsAutoScanServiceImpl-文章审核，保存app端相关文章数据失败");
@@ -142,12 +143,12 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     }
 
 
-
     /**
      * 保存app端相关的文章数据
      * @param wmNews
      */
-    private ResponseResult saveAppArticle(WmNews wmNews) {
+    @Override
+    public  ResponseResult saveAppArticle(WmNews wmNews) {
 
         ArticleDto dto = new ArticleDto();
         //属性的拷贝
@@ -172,7 +173,7 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
             dto.setId(wmNews.getArticleId());
         }
         dto.setCreatedTime(new Date());
-
+        log.info("调用IArticleClient-saveArticle方法保存文章,文章:dto:{}",dto);
         ResponseResult responseResult = articleClient.saveArticle(dto);
         return responseResult;
 
